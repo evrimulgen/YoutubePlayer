@@ -24,17 +24,5 @@ export default class YoutubePlayer extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
 
 AppRegistry.registerComponent('YoutubePlayer', () => YoutubePlayer);
