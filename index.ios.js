@@ -10,11 +10,14 @@ import {
   WebView
 } from 'react-native';
 
+var DEFAULT_URL = 'https://www.youtube.com/';
+
 export default class YoutubePlayer extends Component {
+
   render() {
     return (
       <WebView
-     source={{uri: 'https://www.youtube.com/'}}
+     source={{uri: DEFAULT_URL}}
      style={{marginTop: 20}}
    />
     );
