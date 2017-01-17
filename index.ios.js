@@ -10,7 +10,7 @@ import {
   Text,
   StyleSheet,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 import YouTube from 'react-native-youtube';
@@ -44,17 +44,17 @@ export default class YoutubePlayer extends Component {
           hidden={false}
           playsInline
           showinfo
-          onReady={(e) => {
-            this.setState({ isReady: true })
+          onReady={() => {
+            this.setState({ isReady: true });
           }}
           onChangeState={(e) => {
-            this.setState({ status: e.state })
+            this.setState({ status: e.state });
           }}
           onChangeQuality={(e) => {
-            this.setState({ quality: e.quality })
+            this.setState({ quality: e.quality });
           }}
           onError={(e) => {
-            this.setState({ error: e.error })
+            this.setState({ error: e.error });
           }}
           style={{
             alignSelf: 'stretch',
@@ -64,12 +64,7 @@ export default class YoutubePlayer extends Component {
           }}
         />
 
-        <TouchableOpacity
-          onPress={() => {
-            this.setState((s) => {
-              return { isPlaying: !s.isPlaying };
-            })
-          }}>
+        <TouchableOpacity onPress={() => { this.setState((s) => { return { isPlaying: !s.isPlaying }; }); }}>
           <Text style={[styles.welcome, { color: 'blue' }]}>
           {this.state.status === 'playing' ? 'Pause' : 'Play'}
           </Text>
