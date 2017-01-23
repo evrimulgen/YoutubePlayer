@@ -24,8 +24,19 @@ export default class YoutubePlayer extends Component {
       status: null,
       quality: null,
       error: null,
-      isPlaying: true
+      isPlaying: true,
+      playlist: []
     };
+  }
+
+  componentWillMount() {
+    fetch('https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode=VN&maxResults=5&key=AIzaSyBWcwQIPRcQAK111a4txY5DIVQk5mmc03I')
+    .then((response) => response.json())
+    .then((responseData) => this.setState({ playlist: responseData.items }))
+    .catch((error) => {
+        console.error(error);
+      });
+    console.log(this.state.playlist);
   }
 
   render() {
@@ -39,21 +50,22 @@ export default class YoutubePlayer extends Component {
         </Text>
 
         <YouTube
-          videoId="KVZ-P-ZI6W4"
+          videoId={this.state.playlist[0].id}
+          apiKey='yourApiKey'
           play={this.state.isPlaying}
           hidden={false}
           playsInline
-          onReady={(e) => {
-            this.setState({ isReady: true })
+          onReady={() => {
+            this.setState({ isReady: true });
           }}
           onChangeState={(e) => {
-            this.setState({ status: e.state })
+            this.setState({ status: e.state });
           }}
           onChangeQuality={(e) => {
-            this.setState({ quality: e.quality })
+            this.setState({ quality: e.quality });
           }}
           onError={(e) => {
-            this.setState({ error: e.error })
+            this.setState({ error: e.error });
           }}
           style={{
             alignSelf: 'stretch',
@@ -63,12 +75,7 @@ export default class YoutubePlayer extends Component {
           }}
         />
 
-        <TouchableOpacity
-          onPress={() => {
-            this.setState((s) => {
-              return { isPlaying: !s.isPlaying };
-            })
-          }}>
+        <TouchableOpacity onPress={() => { this.setState((s) => { return { isPlaying: !s.isPlaying }; }); }}>
           <Text style={[styles.welcome, { color: 'blue' }]}>
           {this.state.status === 'playing' ? 'Pause' : 'Play'}
           </Text>
