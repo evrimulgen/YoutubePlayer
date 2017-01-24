@@ -60,7 +60,7 @@ export default class YoutubePlayer extends Component {
 
   onNextPressed = () => {
     this.state.currentID++;
-    if (this.state.currentID > this.state.playlist.items.length) {
+    if (this.state.currentID >= this.state.playlist.items.length) {
       this.state.currentID = 0;
     }
     console.log('Current ID:');
