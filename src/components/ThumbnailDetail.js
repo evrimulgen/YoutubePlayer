@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
-//import Button from './Button';
+import Button from './Button';
 
 const ThumbnailDetail = ({ thumbnailDetails }) => {
   const {
@@ -30,6 +30,13 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
           source={{ uri: thumbnailDetails.snippet.thumbnails.standard.url == null ? 'https://i.ytimg.com/vi/Hzbr4jMxvBk/sddefault.jpg' : thumbnailDetails.snippet.thumbnails.standard.url }}
         />
       </CardSection>
+
+      <CardSection>
+        <Button onPress={() => this.openVideo()}>
+            Play Video
+        </Button>
+      </CardSection>
+
     </Card>
   );
 };

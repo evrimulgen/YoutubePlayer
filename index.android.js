@@ -20,7 +20,7 @@ export default class YoutubePlayer extends Component {
     //console.log(this.state.playlist);
     return (
       <View style={{ flex: 1 }}>
-        <Header headerText={'YoutubePlayer'} />
+        <Header headerText={'Youtube Player'} />
         <ThumbnailList />
       </View>
     );
