@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
+import YoutubePlayer from '../../index.android';
 
 const ThumbnailDetail = ({ thumbnailDetails }) => {
   const {
@@ -32,7 +33,7 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
       </CardSection>
 
       <CardSection>
-        <Button onPress={() => this.openVideo()}>
+        <Button onPress={() => Linking.openURL('https://www.youtube.com/watch?v=' + thumbnailDetails.id)}>
             Play Video
         </Button>
       </CardSection>
