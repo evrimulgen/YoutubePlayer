@@ -12,6 +12,7 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
     imageStyle
   } = styles;
 
+  const playVideo = () => Actions.pageTwo({ videoID: thumbnailDetails.id });
   console.log('ThumbnailDetail:');
   console.log(thumbnailDetails.id);
   return (
@@ -33,7 +34,7 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
       </CardSection>
 
       <CardSection>
-        <Button onPress={Actions.pageTwo}>
+        <Button onPress={playVideo}>
             Play Video
         </Button>
       </CardSection>

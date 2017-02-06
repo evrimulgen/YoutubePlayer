@@ -90,27 +90,9 @@ export default class VideoPlayer extends Component {
     //console.log(this.state.playlist);
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-            Youtube Player
-        </Text>
-
-        <View style={styles.toolBar}>
-        <Button
-          style={styles.toolBarButton}
-          onPress={this.onBackPressed}
-          title='Back'
-        />
-
-        <Button
-          style={styles.toolBarButton}
-          onPress={this.onNextPressed}
-          title="Next"
-        />
-
-        </View>
 
         <YouTube
-          videoId={this.state.playlist.items == null ? 'KVZ-P-ZI6W4' : this.state.playlist.items[this.state.currentID].id}
+          videoId={this.state.playlist.items == null ? 'KVZ-P-ZI6W4' : this.props.videoID}
           apiKey='yourApiKey'
           play={this.state.isPlaying}
           hidden={false}

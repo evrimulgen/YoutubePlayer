@@ -21,8 +21,8 @@ export default class YoutubePlayer extends Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="pageOne" component={ThumbnailList} title="PageOne" initial />
-          <Scene key="pageTwo" component={VideoPlayer} title="PageTwo" />
+          <Scene key="pageOne" component={ThumbnailList} title="Trending List" initial />
+          <Scene key="pageTwo" component={VideoPlayer} title="Video Player" />
         </Scene>
       </Router>
     );
