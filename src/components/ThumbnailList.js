@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import ThumbnailDetail from './ThumbnailDetail';
+import Header from './Header';
 
 export default class ThumbnailList extends Component {
 
@@ -56,7 +57,12 @@ export default class ThumbnailList extends Component {
 
   render() {
     return (
-      <ScrollView>{this.renderthumbnailDetails()}</ScrollView>
+      <ScrollView>
+          <View style={{ flex: 1 }}>
+            <Header headerText={'Youtube Player'} />
+            {this.renderthumbnailDetails()}
+          </View>
+      </ScrollView>
     );
   }
 }

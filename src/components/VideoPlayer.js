@@ -26,7 +26,8 @@ export default class VideoPlayer extends Component {
       error: null,
       isPlaying: true,
       playlist: [],
-      currentID: 0
+      currentID: 0,
+      text: null
     };
   }
 
@@ -40,6 +41,7 @@ export default class VideoPlayer extends Component {
       });
     console.log('Will Mount');
     console.log(this.state.playlist);
+    this.state.text = this.props.text;
   }
 
   componentDidMount() {
@@ -89,7 +91,7 @@ export default class VideoPlayer extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          {'YouTube Player'}
+            Youtube Player
         </Text>
 
         <View style={styles.toolBar}>

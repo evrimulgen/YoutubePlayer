@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, View, Image, Linking } from 'react-native';
+import { Text, View, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
-import YoutubePlayer from '../../index.android';
 
 const ThumbnailDetail = ({ thumbnailDetails }) => {
   const {
@@ -13,7 +13,7 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
   } = styles;
 
   console.log('ThumbnailDetail:');
-  console.log(thumbnailDetails);
+  console.log(thumbnailDetails.id);
   return (
     <Card>
       <CardSection>
@@ -33,7 +33,7 @@ const ThumbnailDetail = ({ thumbnailDetails }) => {
       </CardSection>
 
       <CardSection>
-        <Button onPress={() => Linking.openURL('https://www.youtube.com/watch?v=' + thumbnailDetails.id)}>
+        <Button onPress={Actions.pageTwo}>
             Play Video
         </Button>
       </CardSection>

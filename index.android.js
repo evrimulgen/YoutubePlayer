@@ -7,11 +7,11 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  View,
 } from 'react-native';
 
+import { Router, Scene } from 'react-native-router-flux';
 import ThumbnailList from './src/components/ThumbnailList';
-import Header from './src/components/Header';
+import VideoPlayer from './src/components/VideoPlayer';
 
 export default class YoutubePlayer extends Component {
 
@@ -19,10 +19,12 @@ export default class YoutubePlayer extends Component {
     //console.log('Render');
     //console.log(this.state.playlist);
     return (
-      <View style={{ flex: 1 }}>
-        <Header headerText={'Youtube Player'} />
-        <ThumbnailList />
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="pageOne" component={ThumbnailList} title="Trending List" initial />
+          <Scene key="pageTwo" component={VideoPlayer} title="Video Player" />
+        </Scene>
+      </Router>
     );
   }
 }
