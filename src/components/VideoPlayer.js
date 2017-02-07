@@ -9,8 +9,7 @@ import {
   Text,
   StyleSheet,
   View,
-  TouchableOpacity,
-  Button
+  TouchableOpacity
 } from 'react-native';
 
 import YouTube from 'react-native-youtube';

@@ -15,7 +15,7 @@ export default class ThumbnailList extends Component {
   }
 
   componentWillMount() {
-    fetch('https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=VN&maxResults=5&key=AIzaSyBWcwQIPRcQAK111a4txY5DIVQk5mmc03I')
+    fetch('https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=VN&maxResults=10&key=AIzaSyBWcwQIPRcQAK111a4txY5DIVQk5mmc03I')
     .then((response) => response.json())
     .then((responseData) => this.updatethumbnailDetails(responseData.items))
     .catch((error) => {
@@ -24,7 +24,7 @@ export default class ThumbnailList extends Component {
   }
 
   componentDidMount() {
-    fetch('https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=VN&maxResults=5&key=AIzaSyBWcwQIPRcQAK111a4txY5DIVQk5mmc03I')
+    fetch('https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=VN&maxResults=10&key=AIzaSyBWcwQIPRcQAK111a4txY5DIVQk5mmc03I')
     .then((response) => response.json())
     .then((responseData) => this.updatethumbnailDetails(responseData.items))
     .catch((error) => {
